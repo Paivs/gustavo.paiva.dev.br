@@ -22,6 +22,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+                <Script
+          src="https://analytics.gustavo-paiva.dev.br/script.js"
+          data-website-id="d9b222d9-c68c-4c0f-86e9-e66a3c585aad"
+          strategy="lazyOnload"
+        />
+
         {children}
       </body>
     </html>
