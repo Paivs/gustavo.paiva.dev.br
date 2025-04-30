@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+
+.jetbrains-mono-regular {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -118,5 +128,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "JetBrains Mono", monospace;
   }
+}
+
+
+* {
+  scroll-behavior: smooth;
 }

@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "motion/react";
+
 const LaunchUI = (props) => (
   // <svg
   //   width={24}
@@ -11,7 +14,17 @@ const LaunchUI = (props) => (
   //   <path d="M11.25 18V16.5L21 6.75V8.25L11.25 18Z" fill="currentColor" />
   //   <path d="M11.25 21V19.5L15 15.75V17.25L11.25 21Z" fill="currentColor" />
   // </svg>
-
-  <img src="/logo-dark.png" alt="" className="w-full h-auto max-h-12" />
+  // <motion.div className="">
+  <motion.img
+    src="/logo.png"
+    alt=""
+    className="w-full h-auto max-h-12"
+    initial={{ opacity: 0, scale: 0.8 }} // Initial state
+    animate={{ opacity: 1, scale: 1 }} // Final state
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+    transition={{ duration: 0.5, ease: "easeOut" }} // Animation timing
+  />
+  // </motion.div>
 );
 export default LaunchUI;

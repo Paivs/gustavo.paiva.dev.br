@@ -46,7 +46,7 @@ export default function Navigation({
         "Uma nova forma de presentar! SaaS em Next.JS e Spring Boot para criar sites-presentes",
     },
     {
-      title: "Lizst",
+      title: "Liszt",
       href: "/#liszt",
       description:
         "Plataforma de conexão entre paciente e psicoterapeutas. Feito em React-Native e Spring Boot.",

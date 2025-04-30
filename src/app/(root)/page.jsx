@@ -1,57 +1,180 @@
 import Card from "@/components/Card";
+import Links from "@/components/Links";
+import Mail from "@/components/Mail";
 
-export default function Home() {
+import Typewritter from "@/components/Typewritter";
+import TechGrid from "@/components/TechGrid";
+import Link from "next/link";
+
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export default async function Home() {
+  const projects = [
+    {
+      id: "gift-u",
+      title: "GIFT-U",
+      description:
+        "Presentes digitais, personalizados — do seu jeito, para quem importa.",
+      image: "/gift-u.png",
+      href: "/projetos/gift-u",
+      remoto: "https://gift-u.app/",
+      tags: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "MongoDB",
+        "Docker",
+        "Coolify",
+        "Umami",
+      ],
+    },
+    {
+      id: "liszt",
+      title: "Liszt",
+      description:
+        "Aplicativo mobile para conectar os dados do paciente diretamente com o psicoterapeuta.",
+      image: "/lizst.png",
+      href: "/projetos/lizst",
+      tags: ["React-Native", "Java", "Spring Boot", "MySQL"],
+    },
+    {
+      id: "archdoc",
+      title: "ArchDoc",
+      description:
+        "Aplicativo desktop para gerenciar versões de documentos em geral.",
+      image: "/archdoc.png",
+      href: "/projetos/archdoc",
+      tags: ["Swing", "Java", "MySQL"],
+    },
+    {
+      id: "lista-de-presentes",
+      title: "Lista de Presente",
+      remoto: "https://livs-e-gu.com.br/",
+      description:
+        "Crie e gerencie chás e listas de presentes, recebendo o dinheiro e/ou produtos diretamente!",
+      image: "/livs-e-gu.com.br.png",
+      href: "/projetos/lista-de-presente",
+      tags: ["Next", "Tailwind CSS", "MongoDB", "MySQL", "Docker", "Coolify"],
+    },
+  ];
+
+  await sleep(750);
+
   return (
     <>
       {/* home */}
-      <div
+      <section
         id="sobremim"
-        className="flex item-center justify-center gap-2 min-h-screen w-full p-6"
+        className="container mx-auto flex flex-col md:flex-row justify-center gap-2 min-h-[93vh] w-full p-6 my-12"
       >
-        sobre mim
-      </div>
+        <div className="flex flex-col items-start justify-center gap-2 w-full md:w-1/2">
+          {/* <h2 className="text-4xl font-bold">Sobre mim</h2> */}
+
+          <div className="text-start w-full text-3xl min-h-24">
+            <Typewritter />
+          </div>
+
+          <p className="text-lg">
+            Profissional certificado com experiência em desenvolvimento de
+            sistemas e administração de redes Windows/Linux. Hoje, atuo com
+            práticas DevOps, focando em CI/CD, conteinerização com Docker e
+            deploys automatizados em cloud. Tenho forte habilidade em
+            troubleshooting, otimização de pipelines e entrega contínua de forma
+            escalável e com qualidade.
+          </p>
+
+          <TechGrid />
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-4 w-full md:w-1/2">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="w-full flex items-center justify-center">
+              <img
+                src="/ilustracao.png"
+                alt=""
+                className="hidden md:block w-2/3 h-auto rounded-xl"
+              />
+            </div>
+
+            {/* <p className="text-sm text-gray-400">Acesse também:</p> */}
+
+            <div className="flex space-x-4">
+              <Link
+                href="#projetos"
+                className=" flex flex-col items-center justify-center px-4 py-2 bg-[#6B6B8D] text-white rounded-lg hover:bg-purple-700 transition"
+              >
+                Projetos
+              </Link>
+              <Link
+                href="https://github.com/paivs"
+                target="_blank"
+                className=" flex flex-col items-center justify-center px-4 py-2 bg-[#6B6B8D] text-white rounded-lg hover:bg-gray-900 transition"
+              >
+                GitHub
+              </Link>
+              <Link
+                href="/cv.pdf"
+                target="_blank"
+                className=" flex flex-col items-center justify-center text-center px-4 py-2 bg-[#C27AFF] text-white rounded-lg hover:bg-blue-700 transition"
+              >
+                Baixar <br/> CV
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* projetos */}
-      <div
+      <section
         id="projetos"
-        className="container mx-auto flex flex-col item-start justify-start gap-4 min-h-screen w-full overflow-x-auto"
+        className="container mx-auto flex flex-col justify-start gap-4 min-h-[93vh] w-full overflow-visible px-3 lg:px-0  my-12"
       >
-        <h2 className="text-2xl font-bold">Projetos</h2>
+        <h2 className="text-4xl font-bold">Projetos</h2>
 
-        <div className="flex gap-4 overflow-x-auto p-4">
-          <Card
-            title={"GIFT-U"}
-            description={"Presentes digitais, personalizados — do seu jeito, para quem importa."}
-            imagem={"/gift-u.png"}
-          />
-
-          <Card
-            title={"Lizst"}
-            description={"Aplicativo mobile para conectar os dados do paciente diretamento com o psicoterapeuta."}
-            imagem={"/gift-u.png"}
-          />
-
-          <Card
-            title={"ArchDoc"}
-            description={"Aplicativo desktop para gerenciar versões de documentos em geral."}
-            imagem={"/gift-u.png"}
-          />
-
-          <Card
-            title={"Lista de Presente"}
-            description={"Site para criar e gerenciar sua lista de presentes."}
-            imagem={"/gift-u.png"}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 py-4 overflow-visible">
+          {projects.map((project, index) => (
+            <Card
+              id={project.id}
+              key={index}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              href={project.href}
+              tags={project.tags}
+              remoto={project.remoto}
+            />
+          ))}
         </div>
-      </div>
+      </section>
 
       {/* contato */}
-      <div
+      <section
         id="contato"
-        className="flex item-center justify-center gap-2 min-h-screen w-full"
+        className="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-2 min-h-[93vh] w-full p-4 md:p-0  my-12"
       >
-        contato
-      </div>
+        <div className="flex flex-col w-full gap-6 md:w-1/2 items-center justify-center">
+          <h2 className="text-4xl font-bold text-start">
+            Minhas redes e contatos
+          </h2>
+
+          <Links />
+        </div>
+
+        <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-4">
+          <div className="w-full flex flex-col items-center justify-center gap-4 text-center">
+            <h2 className="text-4xl font-bold">Vamos desenvolver juntos!</h2>
+            <p className="text-lg text-center">
+              Entre em contato pelos links ao lado, ou mande um e-mail
+              diretamente.
+            </p>
+          </div>
+
+          <Mail />
+        </div>
+      </section>
     </>
   );
 }
