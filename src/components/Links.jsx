@@ -15,7 +15,7 @@ export default function Links() {
     </li>
 
     <li>
-      <Link href="https://www.linkedin.com/in/gustavopaiva/">
+      <Link href="mailto:gustavo.paiva.gp1@gmail.com?subject=Entrando em contato pelo site">
         <AlternateEmailIcon /> gustavo.paiva.gp1@gmail.com
       </Link>
     </li>
