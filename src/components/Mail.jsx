@@ -11,6 +11,8 @@ export default function Mail() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    umami.track('mandou email')
+
     toast("Enviando mensagem...");
 
     try {

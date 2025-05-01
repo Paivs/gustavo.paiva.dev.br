@@ -6,6 +6,7 @@ import Typewritter from "@/components/Typewritter";
 import TechGrid from "@/components/TechGrid";
 import Link from "next/link";
 import { GitHub } from "@mui/icons-material";
+import Curriculo from "@/components/Curriculo";
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -129,13 +130,9 @@ export default async function Home() {
               >
                 GitHub
               </Link>
-              <Link
-                href="/cv.pdf"
-                target="_blank"
-                className=" flex flex-col items-center justify-center text-center px-4 py-2 bg-[#C27AFF] text-white rounded-lg hover:bg-blue-700 transition"
-              >
-                Baixar <br /> CV
-              </Link>
+
+              <Curriculo/>
+              
             </div>
           </div>
         </div>

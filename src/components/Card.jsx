@@ -56,7 +56,7 @@ export default function Card({
         viewport={{ once: true }}
       >
         <div className="relative">
-          <img src={image} alt={title} className="w-full h-72 object-cover" />
+          <img src={image} alt={title} className="w-full h-64 md:h-72 object-cover" />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
             <h3 className={`text-lg font-semibold ${textPrimary}`}>{title}</h3>
           </div>
@@ -78,7 +78,10 @@ export default function Card({
 
           <button
             type="button"
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              umami.track('projeto ' + title)
+              setIsOpen(true)
+            }}
             className="text-purple-500 text-sm font-medium hover:underline flex items-center gap-1 pe-1 py-2 mb-1"
           >
             Ver Detalhes
