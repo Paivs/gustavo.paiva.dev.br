@@ -1,10 +1,10 @@
 "use client";
 
-import { FaReact, FaAngular, FaNodeJs, FaJava, FaSQL } from "react-icons/fa";
-import { SiMongodb, SiSass, SiTypescript, SiSolidity, SiPolygon } from "react-icons/si";
+import { useTheme } from "next-themes";
+import { FaReact, FaAngular, FaNodeJs, FaJava } from "react-icons/fa";
+import { SiMongodb, SiTypescript, SiSolidity, SiPolygon, SiSpring } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiSpring } from "react-icons/si";
 
 const techs = [
   { name: "Java", icon: <FaJava size={30} /> },
@@ -18,16 +18,24 @@ const techs = [
 ];
 
 export default function TechGrid() {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  const bgOuter = isDark ? "bg-[#0F172A]" : "bg-[#f8fafc]";
+  const bgInner = isDark ? "bg-[#0F0F1A]" : "bg-black";
+  const cardBg = isDark ? "bg-[#0F172A]" : "bg-[#f1f5f9]";
+  const textColor = isDark ? "text-[#C27AFF]" : "text-[#7e22ce]";
+
   return (
-    <div className="flex items-center justify-center bg-[#0F172A] py-6">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 bg-[#0F0F1A] p-6 rounded-2xl">
+    <div className={`flex items-center justify-center py-6 transition-colors`}>
+      <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 ${bgInner} p-6 rounded-2xl transition-colors`}>
         {techs.map((tech) => (
           <div
             key={tech.name}
-            className="flex flex-col items-center justify-center text-center bg-[#0F172A] p-4 rounded-xl hover:scale-105 transition transform cursor-pointer"
+            className={`flex flex-col items-center justify-center text-center ${cardBg} p-4 rounded-xl hover:scale-105 transition transform cursor-pointer`}
           >
-            <div className="text-[#C27AFF]">{tech.icon}</div>
-            <p className="text-[#C27AFF] mt-2 font-semibold">{tech.name}</p>
+            <div className={`${textColor}`}>{tech.icon}</div>
+            <p className={`${textColor} mt-2 font-semibold`}>{tech.name}</p>
           </div>
         ))}
       </div>

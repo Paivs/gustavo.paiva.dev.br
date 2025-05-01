@@ -1,4 +1,5 @@
 import Navigation from "../../ui/navigation";
+import ThemeSwitcher from "@/components/ThemeSwitcher"
 import { Button } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -61,6 +62,7 @@ export default function Navbar({
             {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
           <NavbarRight>
+            <ThemeSwitcher/>
             {actions.map((action, index) =>
               action.isButton ? (
                 <Button key={index} variant={action.variant || "default"} asChild>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -10,16 +10,16 @@ export default function Mail() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-  
+
     toast("Enviando mensagem...");
-  
+
     try {
       const response = await fetch("/api/sendMail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, mensagem }),
       });
-  
+
       if (response.ok) {
         toast.success("Mensagem enviada com sucesso!");
         setNome("");
@@ -32,8 +32,6 @@ export default function Mail() {
       toast.error("Erro ao enviar mensagem.");
     }
   }
-  
-  
 
   return (
     <form
@@ -45,7 +43,7 @@ export default function Mail() {
         placeholder="Seu nome / empresa"
         value={nome}
         onChange={(e) => setNome(e.target.value)}
-        className="bg-[#1f1f2e] text-gray-300 text-sm px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+        className="bg-gray-100 dark:bg-[#1f1f2e] text-gray-800 dark:text-gray-300 text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
         required
       />
 
@@ -53,14 +51,14 @@ export default function Mail() {
         placeholder="Sua mensagem"
         value={mensagem}
         onChange={(e) => setMensagem(e.target.value)}
-        className="bg-[#1f1f2e] text-gray-300 text-sm px-4 py-2 rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+        className="bg-gray-100 dark:bg-[#1f1f2e] text-gray-800 dark:text-gray-300 text-sm px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
         required
         rows={4}
       />
 
       <motion.button
         type="submit"
-        className="bg-[#6b6b8d] text-gray-300 text-sm px-4 py-2 rounded-lg"
+        className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-2 rounded-lg"
         whileHover={{ scale: 1.025 }}
         whileTap={{ scale: 0.95 }}
       >
