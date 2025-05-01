@@ -22,7 +22,19 @@ export default function ParticlesBackground() {
           color: { value: ["#ffff"] },
           links: { enable: true, color: "#94a3b8", distance: 150, opacity: 0.4 },
           move: { enable: true, speed: 1 },
-          number: { value: 50 },
+
+
+          number: {
+            value: 40, // necessário para density funcionar corretamente
+            density: {
+              enable: true,
+              area: 800, // ajuste a densidade aqui
+            },
+          },
+          
+
+
+
           size: { value: { min: 1, max: 3 } },
           opacity: { value: 0.7 },
         },

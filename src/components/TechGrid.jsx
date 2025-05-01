@@ -24,7 +24,7 @@ export default function TechGrid() {
         {techs.map((tech) => (
           <div
             key={tech.name}
-            className="flex flex-col items-center justify-center bg-[#0F172A] p-4 rounded-xl hover:scale-105 transition transform cursor-pointer"
+            className="flex flex-col items-center justify-center text-center bg-[#0F172A] p-4 rounded-xl hover:scale-105 transition transform cursor-pointer"
           >
             <div className="text-[#C27AFF]">{tech.icon}</div>
             <p className="text-[#C27AFF] mt-2 font-semibold">{tech.name}</p>

@@ -5,6 +5,7 @@ import Mail from "@/components/Mail";
 import Typewritter from "@/components/Typewritter";
 import TechGrid from "@/components/TechGrid";
 import Link from "next/link";
+import { GitHub } from "@mui/icons-material";
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -15,8 +16,11 @@ export default async function Home() {
     {
       id: "gift-u",
       title: "GIFT-U",
+      data: "11/2024",
       description:
         "Presentes digitais, personalizados — do seu jeito, para quem importa.",
+      descriptionFull: "O GIFT-U é uma plataforma web de presentes digitais personalizados, criada para transformar o jeito de presentear. Com ele, qualquer pessoa pode montar um site exclusivo com mensagens, fotos, vídeos, músicas e muito mais — tudo pensado para quem vai receber. O projeto foi desenvolvido com foco em performance, escalabilidade e experiência do usuário, utilizando tecnologias modernas como Next.js, Node.js, MongoDB e Tailwind CSS. O deploy é feito com Docker e gerenciado via Coolify, com monitoramento por Umami. Ideal para datas especiais, o GIFT-U torna a experiência de presentear mais memorável e criativa.",
+      github: "privado",
       image: "/gift-u.png",
       href: "/projetos/gift-u",
       remoto: "https://gift-u.app/",
@@ -34,17 +38,26 @@ export default async function Home() {
     {
       id: "liszt",
       title: "Liszt",
+      data: "08/2023",
       description:
         "Aplicativo mobile para conectar os dados do paciente diretamente com o psicoterapeuta.",
+      descriptionFull: "O Liszt é um aplicativo mobile desenvolvido para facilitar a conexão entre pacientes e psicoterapeutas. A plataforma permite o registro e compartilhamento de dados clínicos, diário de sonhos, lembretes, proporcionando um acompanhamento mais preciso e contínuo. Pensado para melhorar a comunicação e o engajamento no tratamento, o app utiliza React Native no front-end e uma API robusta em Java com Spring Boot no back-end, com persistência dos dados em um banco MySQL. O Liszt entrega uma experiência segura, intuitiva e centrada no cuidado com a saúde mental.",
+      github: "https://github.com/Paivs/Thelma_Armidoro_React-App",
       image: "/lizst.png",
+      video: "/lizst_video.mp4",
+      remoto: "indisponivel",
       href: "/projetos/lizst",
       tags: ["React-Native", "Java", "Spring Boot", "MySQL"],
     },
     {
       id: "archdoc",
       title: "ArchDoc",
+      data: "11/2022",
       description:
         "Aplicativo desktop para gerenciar versões de documentos em geral.",
+      descriptionFull: "Durante minha experiência com desenvolvimento de software industrial, enfrentava um alto volume de documentos técnicos e suas respectivas revisões. Organizar e garantir que todos estavam atualizados consumia horas preciosas antes mesmo de iniciar o trabalho real. O ArchDoc foi criado para resolver exatamente esse problema: uma aplicação desktop desenvolvida em Java Swing, com banco de dados MySQL, que permite gerenciar versões de documentos de forma prática e eficiente. Ideal para profissionais que lidam com documentação técnica, o ArchDoc centraliza, organiza e agiliza todo o processo.", 
+      github: "https://github.com/Paivs/ArchDoc",
+      remoto: "indisponivel",
       image: "/archdoc.png",
       href: "/projetos/archdoc",
       tags: ["Swing", "Java", "MySQL"],
@@ -52,16 +65,19 @@ export default async function Home() {
     {
       id: "lista-de-presentes",
       title: "Lista de Presente",
+      data: "02/2025",
       remoto: "https://livs-e-gu.com.br/",
       description:
         "Crie e gerencie chás e listas de presentes, recebendo o dinheiro e/ou produtos diretamente!",
+      descriptionFull: 'O projeto "Lista de Presente" foi criado para facilitar a organização de chás de bebê, casamentos, aniversários e outros eventos comemorativos. Outras opções no mercado tem uma taxa alta. A plataforma permite que os anfitriões criem listas de presentes personalizadas e escolham se desejam receber os itens fisicamente ou o valor em dinheiro direto em conta. Com uma interface moderna e intuitiva, desenvolvida com Next.js e estilizada com Tailwind CSS, o sistema conta com back-end estruturado em Docker, banco de dados relacional MySQL e deploy gerenciado via Coolify. Uma solução prática para quem quer celebrar com mais liberdade e controle.',
+      github: "privado",
       image: "/livs-e-gu.com.br.png",
       href: "/projetos/lista-de-presente",
       tags: ["Next", "Tailwind CSS", "MongoDB", "MySQL", "Docker", "Coolify"],
     },
   ];
 
-  await sleep(750);
+  await sleep(1500);
 
   return (
     <>
@@ -73,11 +89,11 @@ export default async function Home() {
         <div className="flex flex-col items-start justify-center gap-2 w-full md:w-1/2">
           {/* <h2 className="text-4xl font-bold">Sobre mim</h2> */}
 
-          <div className="text-start w-full text-3xl min-h-24">
+          <div className="text-start w-full text-xl md:text-3xl min-h-24">
             <Typewritter />
           </div>
 
-          <p className="text-lg">
+          <p className="text-sm md:text-lg">
             Profissional certificado com experiência em desenvolvimento de
             sistemas e administração de redes Windows/Linux. Hoje, atuo com
             práticas DevOps, focando em CI/CD, conteinerização com Docker e
@@ -120,7 +136,7 @@ export default async function Home() {
                 target="_blank"
                 className=" flex flex-col items-center justify-center text-center px-4 py-2 bg-[#C27AFF] text-white rounded-lg hover:bg-blue-700 transition"
               >
-                Baixar <br/> CV
+                Baixar <br /> CV
               </Link>
             </div>
           </div>
@@ -141,7 +157,11 @@ export default async function Home() {
               key={index}
               title={project.title}
               description={project.description}
+              descriptionFull={project.descriptionFull}
+              data={project.data}
+              github={project.github}
               image={project.image}
+              video={project.video} 
               href={project.href}
               tags={project.tags}
               remoto={project.remoto}

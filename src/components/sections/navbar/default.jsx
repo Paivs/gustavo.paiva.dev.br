@@ -50,7 +50,7 @@ export default function Navbar({
   return (
     <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
       <div
-        className="fade-bottom absolute left-0 h-24 w-full backdrop-blur-lg"></div>
+        className="fade-bottom absolute left-0 h-24 w-full"></div>
       <div className="max-w-container relative mx-auto">
         <NavbarComponent>
           <NavbarLeft className={""}>
