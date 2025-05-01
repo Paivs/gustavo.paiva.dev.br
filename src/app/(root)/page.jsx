@@ -82,9 +82,7 @@ export default async function Home() {
   return (
     <>
       {/* home */}
-      <section
-        id="sobremim"
-        className="container mx-auto flex flex-col md:flex-row justify-center gap-2 min-h-[93vh] w-full p-6 my-12"
+      <section         id="sobremim"         className="container mx-auto flex flex-col md:flex-row justify-center gap-2 min-h-[93vh] w-full p-6 my-12"
       >
         <div className="flex flex-col items-start justify-center gap-2 w-full md:w-1/2">
           {/* <h2 className="text-4xl font-bold">Sobre mim</h2> */}
@@ -144,9 +142,7 @@ export default async function Home() {
       </section>
 
       {/* projetos */}
-      <section
-        id="projetos"
-        className="container mx-auto flex flex-col justify-start gap-4 min-h-[93vh] w-full overflow-visible px-3 lg:px-0  my-12"
+      <section         id="projetos"         className="container mx-auto flex flex-col justify-start gap-4 min-h-[93vh] w-full overflow-visible p-6 lg:px-0  my-12"
       >
         <h2 className="text-4xl font-bold">Projetos</h2>
 
@@ -171,9 +167,7 @@ export default async function Home() {
       </section>
 
       {/* contato */}
-      <section
-        id="contato"
-        className="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-2 min-h-[93vh] w-full p-4 md:p-0  my-12"
+      <section         id="contato"         className="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-2 min-h-[93vh] w-full p-6 md:p-0  my-12"
       >
         <div className="flex flex-col w-full gap-6 md:w-1/2 items-center justify-center">
           <h2 className="text-4xl font-bold text-start">
